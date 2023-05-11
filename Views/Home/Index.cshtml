@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div>
+    <div style="height:500px;width:100%;">
+            @Html.EJS().PdfViewer("pdfviewer").ServiceUrl(VirtualPathUtility.ToAbsolute("~/Home/")).DocumentPath("A1_H.pdf").DocumentLoad("documentLoad").Render()
+        </div>
+</div>
+
+<script>
+    function documentLoad() {
+        var pdfViewer = document.getElementById('pdfviewer').ej2_instances[0];
+        pdfViewer.magnificationModule.fitTopPage();
+    }
+</script>
